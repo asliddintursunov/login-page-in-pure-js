@@ -1,0 +1,365 @@
+:root {
+    font-size: 62.5%;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500&display=swap');
+
+body {
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inconsolata', monospace;
+    font-size: 1.6rem;
+    user-select: none;
+
+}
+
+/* ====== Positioning part Starts Here ====== */
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+@media (max-width: 1024px) {
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.image-container {
+    flex: 3;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #fff url('/image/loginHd.jpg') no-repeat right;
+    background-size: cover;
+    color: #fff;
+}
+
+.sign-up-suggest-conatiner {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.input-wrapper {
+    flex: 2;
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.input-container {
+    width: 90%;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+    .input-container {
+        margin-top: 4rem;
+    }
+}
+
+/* ====== Email and Password container */
+.email-password-container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rem;
+}
+
+.email-container,
+.password-container,
+.password-match-container,
+.username-container {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    justify-content: center;
+}
+
+/* ====== Positioning part Ends Here ====== */
+
+/* ====== Styling part Starts Here*/
+::placeholder {
+    text-align: center;
+    color: gray;
+}
+
+/* ====== Sign In button style starts here ====== */
+.image-container button,
+.sign-up-button {
+    margin-bottom: 5rem;
+    padding: 0.8rem 3.6rem;
+    border: 1px solid #fff;
+    border-radius: 999rem;
+    background-color: blueviolet;
+    box-shadow: 0.1rem 0.2rem 0.5rem rgba(144, 60, 224, 0.507);
+    color: #fff;
+    font-weight: 600;
+    transition: all 0.15s;
+    cursor: pointer;
+}
+
+.image-container button:hover,
+.sign-up-button:hover {
+    background-color: #fff;
+    border-color: blueviolet;
+    color: blueviolet;
+}
+
+.image-container button:active,
+.sign-up-button:active {
+    box-shadow: none;
+    background-color: rgba(137, 43, 226, 0.362);
+    border-color: #fff;
+    color: #fff;
+}
+
+/* ====== Sign In button style ends here ====== */
+
+/* ====== Email and Password inputs Starts here ====== */
+input {
+    padding: 0.8rem 8.8rem;
+    border: 2px solid rgb(178, 178, 178);
+    border-radius: 0.5rem;
+    outline-color: blueviolet;
+    text-align: center;
+}
+
+@media (max-width: 1200px) {
+
+    input {
+        padding: 0.8rem 6rem;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    input {
+        padding: 0.8rem 8.8rem;
+    }
+}
+
+@media (max-width: 490px) {
+
+    input {
+        padding: 0.8rem 6rem;
+    }
+}
+
+@media (max-width: 410px) {
+
+    input {
+        padding: 0.8rem 3rem;
+    }
+    .email-container{
+        padding: 0.8rem 3rem;
+    }
+}
+
+@media (max-width: 320px) {
+
+    input {
+        padding: 0.7rem 3rem;
+        font-size: x-small;
+    }
+    .see-hide-password-svg,
+    .see-hide-password-svg-match{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    svg{
+        height: 1.8rem;
+        width: 1.8rem;
+    }
+    .password-container{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: end;
+        margin-right: 1.5rem;
+    }
+}
+
+/* ====== Email and Password inputs Ends here ====== */
+
+/* ====== Span Styles Starts Here ====== */
+.email-span,
+.username-span,
+.password-span,
+.password-match-span {
+    margin-top: 1rem;
+    width: fit-content;
+    opacity: 0;
+}
+
+.email-span-top,
+.username-span-top,
+.password-span-top,
+.password-match-span-top {
+    margin-top: 1rem;
+    animation: span-animation 0.15s ease-in 0.1s 1 alternate;
+    animation-fill-mode: both;
+}
+
+@keyframes span-animation {
+    from {
+        transform: translate(1rem, 2.5rem);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(1rem, 0.6rem);
+        opacity: 1;
+        width: fit-content;
+        color: blueviolet;
+        background-color: #fff;
+        font-weight: 600;
+        letter-spacing: 0.3rem;
+        -webkit-transform: translate(1rem, 0.6rem);
+        -moz-transform: translate(1rem, 0.6rem);
+        -ms-transform: translate(1rem, 0.6rem);
+        -o-transform: translate(1rem, 0.6rem);
+}
+}
+
+.email-span-top-red,
+.username-span-top-red,
+.password-span-top-red,
+.password-match-span-top-red {
+    animation: span-animation-red 0.15s ease-in 0.1s 1 alternate;
+    animation-fill-mode: both;
+}
+
+@keyframes span-animation-red {
+    from {
+        transform: translate(1rem, 2.5rem);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(1rem, 0.6rem);
+        opacity: 1;
+        width: fit-content;
+        color: red;
+        background-color: #fff;
+        font-weight: 600;
+        letter-spacing: 0.3rem;
+    }
+}
+
+span {
+    font-size: 1.2rem;
+    opacity: 0;
+    z-index: 10;
+}
+
+/* ====== Span styling part Ends Here ====== */
+
+/* ====== Password additional part starts here ====== */
+.password-checker {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    color: rgba(104, 97, 97, 0.779);
+    font-size: 1.3rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.password-checker::after {
+    content: "";
+    width: 100%;
+    height: 0.4rem;
+    margin-top: 1rem;
+    border: transparent;
+    border-radius: 100rem;
+    opacity: 1;
+    background-color: transparent;
+}
+
+/* ====== Form styling Starts Here ====== */
+form {
+    width: 100%;
+    /* height: 85%; */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+/* ====== Form styling Ends Here ====== */
+
+/* ====== Styling part Ends Here ====== */
+i {
+    font-size: xx-small;
+    text-decoration: underline;
+    font-weight: bold;
+}
+/* See and Hide password styles goes here */
+.see-password-container,
+.see-password-container-match{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.see-hide-password-svg,
+.see-hide-password-svg-match{
+    width: 2.2rem;
+    height: 2.2rem;
+    margin-right: 0.5rem;
+    position: absolute;
+    right: 0;
+}
+.see-hide-svg,
+.see-hide-svg-match{
+    stroke: rgb(142, 142, 142);
+    stroke-width: 0.2rem;
+    cursor: pointer;
+}
+.see-hide-svg:hover,
+.see-hide-svg-match:hover {
+    stroke: rgb(106, 106, 106);
+}
+.show-svg,
+.show-svg-match {
+    display: inline;
+}
+
+.hide-svg,
+.hide-svg-match {
+    display: none;
+}
+.i-username-element,
+.i-email-element,
+.i-password-element,
+.i-password-match-element{
+    color: transparent;
+}

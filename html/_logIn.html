@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="/css/_logIn.css">
+    <script src="/JavaScript/SignIn/_logIn.js" defer></script>
+
+    <!-- Axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+    <main>
+        <div class="login-container">
+            <div>
+                <h1 class="signIn-h1">Sign in to Account</h1>
+            </div>
+            <div class="by-social-medias-container">
+                <svg width="28" height="28" class="facebook-icon" viewBox="0 0 16 16">
+                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002
+                    3.603-.002 8.05c0 4.017 2.926 7.347 6.75 
+                    7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 
+                    1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 
+                    0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                </svg>
+                <svg width="28" height="28" class="linkedin-icon" viewBox="0 0 16 16">
+                    <path
+                        d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 
+                    16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 
+                    16 0 15.487 0 14.854V1.146zm4.943 
+                    12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 
+                    1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 
+                    0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878
+                    1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 
+                    0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
+                </svg>
+                <svg width="28" height="28" class="google-icon" viewBox="0 0 16 16">
+                    <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 
+                    2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 
+                    16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 
+                    4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 
+                    3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 
+                    2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z" />
+                </svg>
+            </div>
+            <div class="or-option">
+                <p>or use your username account</p>
+            </div>
+            <form action="/" id="form">
+                <div class="input-container">
+                    <span id="username-span" class="username-span">
+                        username
+                    </span>
+                    <input id="username" type="text" placeholder="Username" onfocusin="usernameFocusIn()"
+                        onfocusout="usernameFocusOut()" required>
+                    <!-- <span id="usernameSpan" class="usernameValidation">Username requires [A-Za-z0-9]</span> -->
+                    <span id="password-span" class="password-span" style="margin-top: 1rem;">
+                        password
+                    </span>
+                    <div class="password-see-div">
+                        <input id="password" type="password" placeholder="Password" onfocusin="passwordFocusIn()"
+                            onfocusout="passwordFocusOut()" required>
+                        <div class="show-hide-password-container">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6 show hide-show-stroke" id="show">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6 hide hide-show-stroke" id="hide">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
+                            </svg>
+                        </div>
+                    </div>
+                    <!-- <span id="passwordValidation" class="passwordValidation">At least 'a-zA-Z0-9' required from each other</span> -->
+                    <div class="remember-forgot-container">
+                        <div class="remember-me">
+                            <input type="checkbox" id="checkbox">
+                            <label for="checkbox">Remember me</label>
+                        </div>
+                        <div class="forgot-password">
+                            <p>Forgot Password?</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <button class="sign-in-button">Sign In</button>
+                </div>
+            </form>
+            <div class="privacy">
+                <p>Privacy Policy</p>
+                <p>&#x2022;</p>
+                <p>Terms &#x26; Conditions</p>
+            </div>
+        </div>
+        <div class="move-to-signup-container">
+            <div>
+                <h1 class="hello-friend-h1">Hello, Friend!</h1>
+            </div>
+            <div>
+                <p>Fill up personal information and <br> start journey with us.</p>
+            </div>
+            <div>
+                <button class="sign-up-button">Sign Up</button>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
